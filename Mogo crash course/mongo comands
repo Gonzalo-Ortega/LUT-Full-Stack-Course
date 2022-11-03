@@ -1,0 +1,53 @@
+db.posts.insert({
+  title: 'Post One',
+  body: 'Body of post one',
+  category: 'News',
+  likes: 4,
+  tags: ['news', 'events'],
+  user: {
+    name: 'Gonzalo',
+    status: 'student'
+  },
+  date: Date()
+})
+
+db.posts.insertMany([
+  {
+    title: 'Post 2',
+    body: 'Body of post 2',
+    category: 'Technology',
+    date: Date()
+  },
+  {
+    title: 'Post 3',
+    body: 'Body of post 3',
+    category: 'News',
+    date: Date()
+  },
+  {
+    title: 'Post 4',
+    body: 'Body of post 4',
+    category: 'Entertainment',
+    date: Date()
+  }
+])
+
+db.posts.updateOne({ title: 'Post 2' },
+  {
+    title: 'Post Two',
+    body: 'New post 2 body',
+    date: Date()
+  },
+  {
+    upsert: true
+  }
+)
+
+db.posts.updateOne({ title: 'Post 2' },
+  {
+    $set: {
+      body: 'Body of post 2',
+      category: 'Technology'
+    }
+  }
+)
