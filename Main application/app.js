@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const session = require('express-session');
 
 const config = require('./config/database')
 
@@ -35,6 +36,18 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // Body parser middleware:
 app.use(bodyParser.json());
+
+// Passport middleware
+app.use(session({
+  secret: '1234',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+require('./config/passport')(passport);
 
 app.use('/users', users);
 
