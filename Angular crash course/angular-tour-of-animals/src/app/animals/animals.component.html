@@ -1,9 +1,0 @@
-<h2>My Animals</h2>
-
-<ul class="animals">
-  <li *ngFor="let animal of animals">
-    <a routerLink="/detail/{{animal.id}}">
-      <span class="badge">{{animal.id}}</span> {{animal.name}}
-    </a>
-  </li>
-</ul>

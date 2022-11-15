@@ -1,9 +1,0 @@
-<div *ngIf="animal">
-  <h2>{{animal.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{animal.id}}</div>
-  <div>
-    <label for="animal-name">Animal name: </label>
-    <input id="heanimalro-name" [(ngModel)]="animal.name" placeholder="Animal name" />
-  </div>
-  <button type="button" (click)="goBack()">go back</button>
-</div>
